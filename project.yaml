@@ -1,0 +1,18 @@
+specVersion: 0.2.0
+name: SubQuery Dictionary - Karura
+version: 1.0.0
+description: "A SubQuery Dictionary Project that provides increased indexing speed to all projects"
+repository: https://github.com/subquery/subql-dictionary
+schema:
+  file: ./schema.graphql
+network:
+  genesisHash: "0x2c2754adb505017f21c0baff7b5a0ae0d530677616bcef081d904c4fb2925270"
+  endpoint: wss://testnet.imbue.network  
+dataSources:
+  - kind: substrate/Runtime
+    startBlock: 1
+    mapping:
+      file: ./dist/index.js
+      handlers:
+        - handler: handleBlock
+          kind: substrate/BlockHandler
